@@ -205,7 +205,7 @@
       csv = csv.split('\n')
       csv.splice(0, 1)
       csv.forEach(element => {
-        element = element.split(',').map(x => x.replaceAll('"', ''))
+        element = element.split('","').map(x => x.replaceAll('"', ''))
         element[0] = new Date(element[0])
         document.getElementById('show-listings').innerHTML += `
           <div class="show">
@@ -214,7 +214,7 @@
               <h3 class="show-date">${element[0].getDate()}</h3>
               <h3 class="show-time">${element[1]}</h3>
               <h3 class="show-loc">${element[2]}</h3>
-              <h3 class="show-addr">2349 Windy Hill Rd SE Unit 130, Marietta, GA 30067</h3>
+              <h3 class="show-addr">${element[3]}</h3>
             </div>
             <div class="icon-links">
               <a href="https://maps.app.goo.gl/xhpSXjeE1bfm2z1V8" target="_blank"><img src="https://storage.googleapis.com/fluxcapacitor/assets/google_maps.png" height="30px"></a>
